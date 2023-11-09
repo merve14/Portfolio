@@ -18,7 +18,7 @@ export const ProjectList = [
     demo_url: "https://merve14.github.io/OPC-projet-4/",
   },
   {
-    img: "/Kasa4.png",
+    img: "/kasa4.png",
     title: "Creating a real estate rental web application with React.",
     description:
       "The Kasa website was coded more than 10 years ago in ASP.NET with significant legacy code. The CTO, therefore launched a total overhaul to move to a full stack in JavaScript with NodeJS on the back-end, and React on the front-end.",
