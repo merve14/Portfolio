@@ -8,7 +8,6 @@ const SiderBar = styled.div`
   position: fixed;
   height: 100%;
   width: 100%;
-  /* top: 0; */
   left: 0;
   z-index: 999;
   transition: 0.3s ease-in-out;
@@ -57,42 +56,23 @@ export const NavBtn = styled.div`
 `;
 
 function Dropdown({ isOpen, toggle }) {
+  const closeDropDown = () => {
+    toggle();
+  };
   return (
-    <SiderBar isOpen={isOpen} onClick={toggle}>
-      <CloseIcon onClick={toggle} />
+    <SiderBar isOpen={isOpen} onClick={closeDropDown}>
+      <CloseIcon onClick={closeDropDown} />
       <NavMenu>
-        <NavLink
-          onClick={toggle}
-          className="menu-item"
-          to="projects"
-        >
+        <NavLink onClick={closeDropDown} className="menu-item" to="projects">
           Projects
         </NavLink>
-        <NavLink
-          onClick={toggle}
-          className="menu-item"
-          to="about"
-        >
+        <NavLink onClick={closeDropDown} className="menu-item" to="about">
           About
         </NavLink>
-        <NavLink
-          onClick={toggle}
-          className="menu-item"
-          to="contact"
-        >
+        <NavLink onClick={closeDropDown} className="menu-item" to="contact">
           Contact
         </NavLink>
       </NavMenu>
-      <NavBtn onClick={toggle}>
-        <a
-          className="btn PrimaryBtn"
-          href="https://linkedin.com/in/pedro-sales-muniz"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Resume
-        </a>
-      </NavBtn>
     </SiderBar>
   );
 }

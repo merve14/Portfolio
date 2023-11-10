@@ -1,9 +1,11 @@
 import styled from "@emotion/styled";
 
+//Contact wrapper
 export const ContactWrapper = styled.div`
   margin: 5rem 0;
 `;
 
+//Email
 export const Email = styled.div`
   display: flex;
   align-items: center;

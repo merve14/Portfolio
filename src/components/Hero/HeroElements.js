@@ -1,27 +1,50 @@
 import styled, { keyframes } from "styled-components";
 import { Link as LinkScroll } from "react-scroll";
 
+// Variables récurrentes
+const maxWidth = {
+  sm: "540px",
+  md: "720px",
+  lg: "960px",
+  xl: "1000px",
+};
+
+const colors = {
+  white: "#f6f6f6",
+  purple: "#cd5ff8",
+};
+
+// Keyframes
+const ScrollAnimation = keyframes`
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+`;
+
+// Styled Components
 export const HeroContainer = styled.div`
-  padding-bottom: 2rem;
-  padding-top: 4rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
-  margin-right: auto;
-  margin-left: auto;
+  padding: 4rem 1rem 2rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
 
   @media (min-width: 576px) {
-    max-width: 540px;
+    max-width: ${maxWidth.sm};
   }
   @media (min-width: 768px) {
-    max-width: 720px;
+    max-width: ${maxWidth.md};
   }
   @media (min-width: 992px) {
-    max-width: 960px;
+    max-width: ${maxWidth.lg};
   }
   @media (min-width: 1200px) {
-    max-width: 1000px;
+    max-width: ${maxWidth.xl};
   }
 `;
 
@@ -44,21 +67,21 @@ export const HeroLeft = styled.div`
 
   h1 {
     font-size: 3.5rem;
-    color: #f6f6f6;
+    color: ${colors.white};
     opacity: 0.98;
     font-weight: 400;
   }
 
   h5 {
     font-size: 1.6rem;
-    color: #cd5ff8;
+    color: ${colors.purple};
     margin-bottom: 2rem;
     font-weight: 400;
   }
 
   p {
     font-size: 17px;
-    color: #f6f6f6;
+    color: ${colors.white};
     opacity: 0.85;
   }
 
@@ -69,6 +92,7 @@ export const HeroLeft = styled.div`
 
     h5 {
       min-height: 5rem;
+    }
   }
 `;
 
@@ -83,22 +107,6 @@ export const Image = styled.img`
   width: auto;
 `;
 
-const ScrollAnimation = keyframes`
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-20px);
-  }
-  60% {
-    transform: translateY(-10px);
-  }
-`;
-
 export const ScrollDown = styled(LinkScroll)`
   display: flex;
   justify-content: flex-start;
@@ -106,6 +114,7 @@ export const ScrollDown = styled(LinkScroll)`
   position: absolute;
 
   animation: ${ScrollAnimation} 2s linear 0s infinite;
+
   @media screen and (max-width: 992px) {
     position: relative;
     justify-content: center;
@@ -117,12 +126,12 @@ export const ScrollLink = styled.div`
   display: flex;
   align-items: center;
   font-size: 1.3rem;
-  color: #cd5ff8;
+  color: ${colors.purple};
 
   img {
     height: 35px;
     width: 35px;
     margin-left: 6px;
-    color: #cd5ff8;
+    color: ${colors.purple};
   }
 `;

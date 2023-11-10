@@ -18,7 +18,7 @@ const StyledArrowIcon = styled(MdKeyboardArrowUp)`
   box-shadow: 0px 4px 20px rgba(160, 170, 180, 0.6);
 `;
 
-function ScrollToTop() {
+const ScrollToTop = () => {
   const [open, setOpen] = React.useState(false);
   const [shouldRender, setShouldRender] = useState(false);
 
@@ -27,34 +27,40 @@ function ScrollToTop() {
     scroll.scrollToTop({ duration: 0 });
   };
 
+  const handleScroll = () => {
+    const scrollThreshold = 500;
+    if (window.scrollY > scrollThreshold) setShouldRender(true);
+    else setShouldRender(false);
+  };
+
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollThreshold = 500;
-      if (window.scrollY > scrollThreshold) setShouldRender(true);
-      else setShouldRender(false);
-    };
     window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
-  return (
-    shouldRender && (
-      <Tooltip
-        title="Scroll to top"
-        placement="top"
-        open={open}
-        onOpen={() => setOpen(true)}
-        onClose={() => setOpen(false)}
+  const renderScrollToTopButton = () => (
+    <Tooltip
+      title="Scroll to top"
+      placement="top"
+      open={open}
+      onOpen={() => setOpen(true)}
+      onClose={() => setOpen(false)}
+    >
+      <StyledIconButton
+        size="large"
+        aria-label="scroll to top"
+        onClick={handleClick}
       >
-        <StyledIconButton
-          size="large"
-          aria-label="scroll to top"
-          onClick={handleClick}
-        >
-          <StyledArrowIcon fontSize={40} />
-        </StyledIconButton>
-      </Tooltip>
-    )
+        <StyledArrowIcon fontSize={40} />
+      </StyledIconButton>
+    </Tooltip>
   );
-}
+
+  return shouldRender && renderScrollToTopButton();
+};
 
 export default ScrollToTop;

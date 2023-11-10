@@ -55,6 +55,10 @@ export const stackList = [
     name: "Typescript",
   },
   {
+    img: "../redux.svg",
+    name: "Redux",
+  },
+  {
     img: "https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg",
     name: "Git",
   },

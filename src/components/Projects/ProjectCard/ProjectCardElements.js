@@ -1,31 +1,13 @@
 import styled from "@emotion/styled";
 
-export const Card = styled.div`
-  display: grid;
-  grid-gap: 2rem;
-  margin-bottom: 4rem;
-  grid-template-columns: 1fr;
-  padding-bottom: 2rem;
-  overflow: hidden;
+// Shared styles
+const cardBaseStyles = `
   border-radius: 10px;
   box-shadow: 0 5px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  @media (min-width: 992px) {
-    grid-template-columns: 1fr 1fr;
-    border-bottom: 0;
-    padding-bottom: 0;
-  }
 `;
 
-export const CardLeft = styled.div`
-  justify-self: center;
-  height: 100%;
-  img {
-    object-fit: cover;
-  }
-`;
-
-export const CardRight = styled.div`
+const textContainerStyles = `
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,28 +30,14 @@ export const CardRight = styled.div`
       text-align: start;
     }
   }
+
   @media (min-width: 992px) {
     align-items: flex-start;
     margin-top: 1rem;
   }
 `;
 
-export const BtnGroup = styled.div`
-  height: 70px;
-  display: flex;
-  align-items: center;
-`;
-
-export const TechCardContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  @media (min-width: 992px) {
-    justify-content: flex-start;
-  }
-`;
-
-export const TechCard = styled.div`
+const techCardStyles = `
   border-radius: 10px;
   background-color: #f5f5f5;
   padding: 5px 10px;
@@ -82,4 +50,64 @@ export const TechCard = styled.div`
   color: rgba(0, 0, 0, 0.815);
   cursor: default;
   box-shadow: 0px 2px 5px rgba(160, 170, 180, 0.6);
+`;
+
+// Card Component
+export const Card = styled.div`
+  ${cardBaseStyles}
+  display: grid;
+  grid-gap: 2rem;
+  margin-bottom: 4rem;
+  grid-template-columns: 1fr;
+  padding-bottom: 2rem;
+  overflow: hidden;
+
+  @media (min-width: 992px) {
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+`;
+
+export const CardLeft = styled.div`
+  ${textContainerStyles}
+  justify-self: center;
+
+  img {
+    object-fit: cover;
+  }
+`;
+
+export const CardRight = styled.div`
+  ${textContainerStyles}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: 992px) {
+    align-items: flex-start;
+    margin-top: 1rem;
+  }
+`;
+
+export const BtnGroup = styled.div`
+  height: 70px;
+  display: flex;
+  align-items: center;
+`;
+
+// Tech Card Component
+export const TechCardContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media (min-width: 992px) {
+    justify-content: flex-start;
+  }
+`;
+
+export const TechCard = styled.div`
+  ${techCardStyles}
 `;
