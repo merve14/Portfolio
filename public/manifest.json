@@ -9,7 +9,7 @@
     },
     {
       "src": "./favicon(1).ico",
-      "type": "image/png",
+      "type": "image/x-icon",
       "sizes": "192x192"
     }
   ],
