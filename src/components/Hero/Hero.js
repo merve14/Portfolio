@@ -5,7 +5,6 @@ import {
   HeroContainer,
   HeroWrapper,
   HeroLeft,
-  HeroRight,
   ScrollDown,
   ScrollLink,
 } from "./HeroElements";
@@ -43,8 +42,6 @@ function Hero() {
                     "I design cool websites.",
                     500,
                     "I'm a Front-End Developer.",
-                    1000,
-                    // 'I design and code beautifully simple things, and I love what I do.',
                     1000,
                     "A problem solver.",
                     1000,

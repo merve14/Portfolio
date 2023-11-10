@@ -14,8 +14,10 @@ export const ProjectList = [
     description:
       "A “mobile first” website that lists the menus of gourmet restaurants in Paris.",
     tech_stack: ["HTML", "CSS", "SASS"],
-    github_url: "https://github.com/merve14/OPC-projet-4.git",
-    demo_url: "https://merve14.github.io/OPC-projet-4/",
+    github_url:
+      "https://github.com/merve14/Improving-the-interface-of-a-mobile-site-with-CSS-animations.git",
+    demo_url:
+      "https://merve14.github.io/Improving-the-interface-of-a-mobile-site-with-CSS-animations/",
   },
   {
     img: "/kasa4.png",
